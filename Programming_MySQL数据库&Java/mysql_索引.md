@@ -34,6 +34,8 @@ OR B.key is NULL
 
 ## 索引简介
 
+[**MySQL 索引的原理与应用：索引类型，存储结构与锁**](https://juejin.im/post/5cf3d550f265da1b76388a34)
+
 ### 索引是什么：
 
 - 索引（Index）是帮助MySQL高效获得数据的**数据结构**
