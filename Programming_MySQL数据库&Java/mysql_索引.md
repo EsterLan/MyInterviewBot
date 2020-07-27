@@ -37,8 +37,8 @@ OR B.key is NULL
 ### 索引是什么：
 
 - 索引（Index）是帮助MySQL高效获得数据的**数据结构**
-
 - 索引的目的在于提高查询效率，类比字典。
+- 
 
 **"*排好序*的*快速查找*数据结构"**，两大功能：
 
@@ -55,12 +55,47 @@ OR B.key is NULL
   
 
   why 查询快，增删慢：INSERT UPDATE DELETE因为增删除了对数据进行操作外，还是需要对索引进行维护；
+  
+  ![image-20200726103428832](C:\Users\Ester.L\AppData\Roaming\Typora\typora-user-images\image-20200726103428832.png)
 
 ### 索引的优势和劣势
 
+![image-20200726102021011](C:\Users\Ester.L\AppData\Roaming\Typora\typora-user-images\image-20200726102021011.png)
+
+![image-20200726102034673](C:\Users\Ester.L\AppData\Roaming\Typora\typora-user-images\image-20200726102034673.png)
+
 ### 索引分类和建立索引
 
+![image-20200726103258447](C:\Users\Ester.L\AppData\Roaming\Typora\typora-user-images\image-20200726103258447.png)
+
+![image-20200726103329629](C:\Users\Ester.L\AppData\Roaming\Typora\typora-user-images\image-20200726103329629.png)
+
 ### 索引结构和检索原理
+
+[全文索引、**b-tree、Hash**、r-tree](https://blog.csdn.net/ZYC88888/article/details/81701712)
+
+[Hash索引和B+树索引的区别](https://blog.csdn.net/Sophia_0331/article/details/105288057)
+
+![微信图片_20200726102902](D:\E01Software\Typora\figs\微信图片_20200726102902.png)
+
+![微信图片_20200726102910](D:\E01Software\Typora\figs\微信图片_20200726102910.png)
+
+Hash索引与B+树索引的区别
+
+由于Hash索引结构和B+ 树不同，因此在索引使用上也会有差别：
+
+（1）Hash索引不能进行范围查询，而B+树可以。
+这是因为Hash索引指向的数据是无序的，而B+ 树的叶子节点是个有序的链表。
+
+（2）Hash索引不支持联合索引的最左侧原则（即联合索引的部分索引无法使用），而B+树可以。
+对于联合索引来说，Hash索引在计算Hash值的时候是将索引键合并后再一起计算Hash值，所以不会针对每个索引单独计算Hash值。因此如果用到联合索引的一个或多个索引时，联合索引无法被利用。
+
+（3）Hash索引不支持Order BY排序，而B+树支持。
+因为Hash索引指向的数据是无序的，因此无法起到排序优化的作用，而B+树索引数据是有序的，可以起到对该字段Order By 排序优化的作用。
+
+（4）Hash索引无法进行模糊查询。而B+ 树使用 LIKE 进行模糊查询的时候，LIKE后面前模糊查询（比如%开头）的话可以起到优化的作用。
+
+（5）Hash索引在等值查询上比B+树效率更高。
 
 ### 哪些情况下需要/不要建立索引
 
@@ -95,4 +130,24 @@ end
 ![image-20200620202102919](C:\Users\Ester.L\AppData\Roaming\Typora\typora-user-images\image-20200620202102919.png)
 
 ![image-20200620202437897](C:\Users\Ester.L\AppData\Roaming\Typora\typora-user-images\image-20200620202437897.png)
+
+建立表的范式？
+
+> 第一范式：原子性，每个字段应该清晰的定义
+>
+> 第二范式： 唯一性，主键
+>
+> 第三范式：每个	
+
+SELECT 子句顺序
+
+| 子句     | 说明                 | 是否必须使用             |
+| -------- | -------------------- | ------------------------ |
+| SELECT   | 要返回的列或者表达式 | 是                       |
+| FROM     | 从中检索数据的表     | 仅在从表中选择数据时使用 |
+| WHERE    | 行级过滤             | 否                       |
+| GROUP BY | 分组说明             | 仅在按组计算聚集时使用   |
+| HAVING   | 组级过滤             | 否                       |
+| ORDER BY | 要输出排序顺序       | 否                       |
+| LIMIT    | 要检索的行数         | 否                       |
 

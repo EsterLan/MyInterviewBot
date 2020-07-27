@@ -31,7 +31,7 @@ more refer to:[数据预处理](数据预处理.md)
 
 在用户交易行为表中提取有效特征
 
-[特征构造]()
+[特征构造](特征工程：feature extraction & feature creation.md)
 
 
 
@@ -43,7 +43,13 @@ XGB如何调参
 
 ![preview](https://pic2.zhimg.com/v2-3fa0a24855370044cb7a9fd7c0626a7e_r.jpg?source=1940ef5c)
 
+[各类模型的优缺点和适用场景](各类模型的优缺点和适用场景.md)
+
 ### 上分关键
+
+如何构造的特征：
+
+
 
 融合一定会起作用吗？有哪几种融合模型的方法
 
