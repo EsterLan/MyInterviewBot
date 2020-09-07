@@ -113,6 +113,32 @@ aft = aft.next
 aft == pHead.next ### False
 ```
 
+### 单链表反转
+
+题目描述：将链表反转
+
+```python
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+class Solution:
+    def reversedList(self, head):
+        if not head or not head.next:
+            return head
+        pre = None
+        next = None
+        while head:
+            next = head.next
+            head.next = pre
+            pre = head
+            head = next
+        return pre
+            
+```
+
+
+
 #### 两个链表的公共节点
 
 题目描述：输入两个链表，找出它们的第一个公共结点。（注意因为传入数据是链表，所以错误测试数据的提示是用其他方式显示的，保证传入数据是正确的）

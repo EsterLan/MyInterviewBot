@@ -1,5 +1,7 @@
 ## Fintech项目注意点
 
+一个第十的开源https://zhuanlan.zhihu.com/p/140017918
+
 ### 项目简介
 
 #### 背景
@@ -68,6 +70,9 @@ XGBoost算法可以给预测模型带来能力的提升。当我对它的表现�
 - XGBoost内置处理缺失值的规则。
 - 用户需要提供一个和其它样本不同的值，然后把它作为一个参数传进去，以此来作为缺失值的取值。XGBoost在不同节点遇到缺失值时采用不同的处理方法，并且会学习未来遇到缺失值时的处理方法。
 
+> Xgboost 在处理带缺失值的特征时，先对非缺失的样本进行排序，对该特征缺失的样本先不处理，然后在遍历每个分裂点时，将这些缺失样本分别划入左子树和右子树来计算损失然后求最优。
+> 如果训练样本中没有缺失值，而预测过程中出现了缺失值，那么样本会被默认分到右子树。
+
 ##### 5、剪枝
 
 - 当分裂时遇到一个负损失时，GBM会停止分裂。因此GBM实际上是一个**贪心算法**。
@@ -89,7 +94,15 @@ XGBoost算法可以给预测模型带来能力的提升。当我对它的表现�
 XGBoost Guide - Introduce to Boosted Trees 
 Words from the Auther of XGBoost [Viedo]
 
+#### XGB分裂点选择
 
+reference:https://blog.csdn.net/dpengwang/article/details/87910480
+
+三种：
+
+- 第一种“Exact Greedy Algorithm for Split Finding”，是一种利用穷举法选择最佳的分裂节点
+- 第二种“Approximate Algorithm for Split Finding”，通过加权分位数方法近似选择最佳的分裂节点
+- 第三种“Sparsity-aware Split Finding”，针对稀疏特征的分裂点选择法
 
 #### XGB如何调参：以下（1）（2）按顺序调参
 

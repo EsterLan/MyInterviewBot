@@ -368,7 +368,7 @@ class Solution:
       ```python
       # 逆时针旋转
       matrix = [[row[i] for row in matrix] for i in range(len(matrix[0])-1, -1, -1)]
-      # 逆时针旋转
+      # 顺时针旋转
       matrix = [[matrix[i][j] for i in range(len(matrix)-1, -1, -1)] for j in range(len(matrix[0]))]
       # 转置
       matrix = [[row[i] for row in matrix] for i in range(len(matrix[0]))]

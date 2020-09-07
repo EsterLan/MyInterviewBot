@@ -2,6 +2,34 @@
 
 https://blog.csdn.net/qq_36306833/article/details/104416578
 
+## 牛客网
+
+https://www.nowcoder.com/discuss/397018?type=1
+
+```python
+# 输入：
+# n k
+# a[0] a[1] ... a[n-1]
+def ValidPermutations(n, k, Inf):
+    # write your core code here
+	pass
+
+    
+def main():
+    n, k = map(int, input().split())
+    Inf = []
+    while True:
+        try:
+            Inf.append(list(input().split())) 
+        except:
+            break
+    print(ValidPermutations(n, k, Inf))
+main() 
+    
+```
+
+
+
 这里主要是介绍一些关于牛客网上面编程题笔试系统的一些容易踩的坑。希望大家春招顺利！据说点一下关注可以拿到满意的 offer！
 
 1. 接口类型测试
@@ -105,3 +133,6 @@ int main(){
 ————————————————
 版权声明：本文为CSDN博主「我的程序跑快快」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/qq_36306833/java/article/details/104416578
+
+![1596590428(1)](D:\A02UESTCGraduate05\找个好工作\MyInterviewBot\figures\1596590428(1).png)
+
